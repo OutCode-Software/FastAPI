@@ -1,32 +1,53 @@
-# Get Start with FastAPI
+# Package Maker API
 
-FastAPI is a modern, fast (high-performance) web framework for building APIs with Python 3.7+ based on standard Python type hints.
+This is a simple API for creating packages with a given priority.
 
-## 1. Installation
+## Requirements
 
-- Run command on your terminal/command prompt.
+To run this API, you'll need:
 
-    ```bash
-        pip install fastapi
-        pip install uvicorn
-    ```
+- Python 3.6 or later
+- FastAPI and its dependencies
+- Pydantic and its dependencies
 
-## Description
+## Usage
 
-- Pydantic is a Python library for data validation and settings management using Python type annotations. It is used by FastAPI to validate incoming and outgoing data, such as request bodies and query parameters.
+\``GET /`\`
 
-- Pydantic uses the Python type hints feature to define the shape and data types of data being validated. For example, the following code defines a Pydantic model for a user with a name and age:
+This endpoint returns a simple "Hello, World!" message:
 
-    ```python
-    from pydantic import BaseModel
+```bash
+$ http GET http://localhost:8000/
+HTTP/1.1 200 OK
+content-length: 17
+content-type: application/json
+date: Sat, 27 Feb 2023 00:00:00 GMT
 
-    class User(BaseModel):
-        name: str
-        age: int
-    ```
+{
+    "Hello": "World"
+}
+```
 
-- Pydantic automatically validates incoming data against the defined model, checking if the data is of the correct type, if required fields are present, and if values conform to any additional constraints specified in the model.
+\``POST /package/{priority}`\`
 
-- In addition to data validation, Pydantic can also be used for settings management, as it supports loading configuration from a variety of sources such as environment variables, JSON files, and command-line arguments.
+This endpoint creates a package with the given priority and data.
 
-- Overall, Pydantic provides a fast and flexible way to validate and manage data in Python, making it a popular choice for building web APIs and other applications.
+The priority is passed as a URL parameter, the package data is passed in the request body as JSON, and a boolean value is passed in the query string.
+
+Example request:
+
+```bash
+$ http POST http://localhost:8000/package/42 value:=true name=foo number=1234 description=bar
+HTTP/1.1 200 OK
+content-length: 70
+content-type: application/json
+date: Sat, 27 Feb 2023 00:00:00 GMT
+
+{
+    "description": "bar",
+    "name": "foo",
+    "number": "1234",
+    "priority": 42,
+    "value": true
+}
+```

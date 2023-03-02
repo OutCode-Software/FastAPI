@@ -1,34 +1,95 @@
-# Get Start with FastAPI
+# FastAPI Package Creator
 
-FastAPI is a modern, fast (high-performance) web framework for building APIs with Python 3.7+ based on standard Python type hints.
+This is a simple FastAPI application for creating and retrieving package data. The application exposes two endpoints:
 
-## 1. Installation
+- /: A simple root endpoint that returns a greeting message.
+- /package/: An endpoint that accepts an HTTP POST request with package data in the request body, validates it using Pydantic models, and returns the parsed data as a JSON response.
 
-- Run command on your terminal/command prompt.
+## Requirements
 
-    ```bash
-        pip install fastapi
-        pip install uvicorn
-    ```
+To run this application, you will need:
 
-## Description
+- Python 3.7 or later
+- pip (Python package manager)
+- A terminal or command prompt
 
-- Pydantic is a Python library for data validation and settings management using Python type annotations. It is used by FastAPI to validate incoming and outgoing data, such as request bodies and query parameters.
+## Installation
 
-- Pydantic uses the Python type hints feature to define the shape and data types of data being validated. For example, the following code defines a Pydantic model for a user with a name and age:
+To install the required packages, run the following command:
 
-    ```python
-    from pydantic import BaseModel
+```bash
+pip install fastapi uvicorn[standard] pydantic
+```
 
-    class User(BaseModel):
-        name: str
-        age: int
-    ```
+This will install the FastAPI and Pydantic packages, as well as the uvicorn server, which we will use to run the application.
 
-- Pydantic automatically validates incoming data against the defined model, checking if the data is of the correct type, if required fields are present, and if values conform to any additional constraints specified in the model.
+## Usage
 
-- In addition to data validation, Pydantic can also be used for settings management, as it supports loading configuration from a variety of sources such as environment variables, JSON files, and command-line arguments.
+To run the application, navigate to the root directory of the project and run the following command:
 
-- Overall, Pydantic provides a fast and flexible way to validate and manage data in Python, making it a popular choice for building web APIs and other applications.
+```bash
+uvicorn main:app --reload
+```
 
-## Response Model
+This will start the application server and enable auto-reloading of the code when changes are made.
+
+You can now access the application endpoints by navigating to <http://localhost:8000/> and <http://localhost:8000/package/> in your web browser or using a tool like curl or httpie.
+
+## API Reference
+
+The application exposes the following endpoints:
+
+\``GET /`\`
+
+A simple root endpoint that returns a greeting message.
+
+`Example Request`
+
+```bash
+http GET http://localhost:8000/
+```
+
+`Example Response`
+
+```json
+{
+    "Hello": "World"
+}
+```
+
+\``POST /package/`\`
+
+An endpoint that accepts an HTTP POST request with package data in the request body, validates it using Pydantic models, and returns the parsed data as a JSON response.
+
+`Request Body`
+
+The request body must be a JSON object with the following fields:
+
+- `secret_id` (integer, required): A unique identifier for the package.
+- `name` (string, required): The name of the package.
+- `number` (string, required): The package tracking number.
+- `description` (string, optional): A description of the package.
+
+`Response Body`
+
+The response body will be a JSON object with the following fields:
+
+- `name` (string): The name of the package.
+- `number` (string): The package tracking number.
+- `description` (string, optional): A description of the package.
+
+`Example Request`
+
+```bash
+$ http POST <http://localhost:8000/package/> secret_id=123 name='FastAPI' number='123456' description='A web framework for building APIs'
+```
+
+`Example Response`
+
+```json
+{
+    "name": "FastAPI",
+    "number": "123456",
+    "description": "A web framework for building APIs"
+}
+```
