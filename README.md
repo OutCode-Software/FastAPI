@@ -18,17 +18,17 @@ FastAPI is a modern, fast (high-performance), web framework for building APIs wi
 
 Below is a list of the 12 tutorials that you have worked on:
 
-1. [Getting started]
-2. [Path and Query Parameters]
-3. [Pydantic BaseModel]
-4. [Response Model]
-5. [Todo App]
-6. [Forms]
-7. [Tortoise ORM introduction with FastAPI integration]
-8. [Basic Jinja2 templates with FastAPI]
-9. [Async Databases with FastAPI]
-10. [Introduction to Testing with FastAPI]
-11. [Testing a Todo API]
+1. [Getting started](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial01%20(Getting%20Started))
+2. [Path and Query Parameters](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial02%20(Path%20and%20Query%20Parameters))
+3. [Pydantic BaseModel](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial03%20(Pydantic%20BaseModel))
+4. [Response Model](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial04%20(Response%20Model))
+5. [Todo App](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial05%20(TODO%20App))
+6. [Forms](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial06%20(Forms))
+7. [Tortoise ORM introduction with FastAPI integration](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial07%20(Tortoise%20ORM%20Introduction%20with%20FastAPI%20Integration))
+8. [Basic Jinja2 templates with FastAPI](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial08%20(Basic%20Jinja2%20Templates%20with%20FastAPI))
+9. [Async Databases with FastAPI](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial09%20)Async%20Databases%20with%20FastAPI))
+10. [Introduction to Testing with FastAPI](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial11%20(Testing%20A%20Todo%20API))
+11. [Testing a Todo API](https://github.com/sujanrajtuladharoutcode/FastAPI/tree/master/Tutorial11%20(Testing%20A%20Todo%20API))
 
 Each of these tutorials covers a different aspect of FastAPI development, and together they provide a solid foundation for building high-quality APIs with FastAPI.
 
